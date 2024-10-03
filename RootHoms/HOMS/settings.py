@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'HOMS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': os.getenv('DB_NAME', 'homsdb'),  
-        'USER': os.getenv('DB_USER', 'dinizc'),  
-        'PASSWORD': os.getenv('DB_PASSWORD', '@dmin123'),  
-        'HOST': os.getenv('DB_HOST', 'server-homs.database.windows.net'),  
-        'PORT': os.getenv('DB_PORT', ''),  
+        'NAME': os.getenv('DB_NAME'),  
+        'USER': os.getenv('DB_USER'),  
+        'PASSWORD': os.getenv('DB_PASSWORD'),  
+        'HOST': os.getenv('DB_HOST'),  
+        'PORT': os.getenv('DB_PORT'),  
         'OPTIONS': {
-            'driver': os.getenv('DB_DRIVER', 'ODBC Driver 17 for SQL Server'),  
-            'extra_params': os.getenv('DB_EXTRA_PARAMS', 'TrustServerCertificate=yes;Connection Timeout=30;'),  # Parâmetros adicionais
+            'driver': os.getenv('DB_DRIVER'),  
+            'extra_params': 'TrustServerCertificate=yes;Connection Timeout=30;',  # Parâmetros adicionais
         },
     }
 }

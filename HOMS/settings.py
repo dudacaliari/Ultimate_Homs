@@ -73,39 +73,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'HOMS.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-# Database settings
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.oracle',
-#        'NAME': 'localhost:1521/orclhm',
-#        'USER': 'system',
-#        'PASSWORD': 'tiger',
-#    }
-#}
-
 # settings.py
-
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': 'homsdb',
-        'USER': 'dinizc',
-        'PASSWORD': '@dmin123',
-        'HOST': 'server-homs.database.windows.net',
-        'PORT': '',
+        'NAME': os.getenv('DB_NAME', 'homsdb'),  
+        'USER': os.getenv('DB_USER', 'dinizc'),  
+        'PASSWORD': os.getenv('DB_PASSWORD', '@dmin123'),  
+        'HOST': os.getenv('DB_HOST', 'server-homs.database.windows.net'),  
+        'PORT': os.getenv('DB_PORT', ''),  
         'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
-            'extra_params': 'TrustServerCertificate=yes;Connection Timeout=30;',  # Parâmetros extras, se necessário
+            'driver': os.getenv('DB_DRIVER', 'ODBC Driver 17 for SQL Server'),  
+            'extra_params': os.getenv('DB_EXTRA_PARAMS', 'TrustServerCertificate=yes;Connection Timeout=30;'),  # Parâmetros adicionais
         },
     }
 }
-
-
-
-
 
 
 # Password validation

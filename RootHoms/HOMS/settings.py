@@ -130,7 +130,7 @@ STATIC_URL = '/static/'
 
 # Apenas para desenvolvimento
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'homsapp', 'static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

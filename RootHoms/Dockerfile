@@ -20,14 +20,8 @@ COPY . .
 # Instala as dependências do projeto
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Coleta arquivos estáticos durante o build (opcional, já que você comitou, mas vamos garantir)
-RUN python manage.py collectstatic --noinput
-
-# Ajusta permissões dos arquivos estáticos para leitura
-RUN chmod -R 755 /app/staticfiles
-
 # Expõe a porta para o servidor Django (ajuste se necessário)
 EXPOSE 8000
 
-# Comando padrão para iniciar o servidor Gunicorn
+# Comando padrão para iniciar o servidor (ajuste conforme o projeto)
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "HOMS.wsgi:application"]
